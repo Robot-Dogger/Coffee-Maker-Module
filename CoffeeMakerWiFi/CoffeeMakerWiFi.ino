@@ -141,14 +141,18 @@ void saveParamCallback(){
 }
 void checkCoffeeState(){
   Serial.println("started checkCoffeeState() function");
+
   String coffeeMakerState = getParam("coffeeMakerStateid");
+
 if (strcmp(coffeeMakerState.c_str(), "1") == 0) {
     if(brewingState = 0){  
       digitalWrite(relayPin, HIGH);     // Turn coffee maker ON
       digitalWrite(GreenledPin, HIGH);    // Green LED on indicates "on"
       digitalWrite(BlueledPin, LOW);      // Blue LED off
+
       Serial.println("Coffee Maker ON");
-      bool brewingState = 1;
+
+      brewingState = true;
       BrewStartTime = millis();
       delay(4);
       }
