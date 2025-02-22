@@ -145,7 +145,7 @@ void checkCoffeeState(){
   String coffeeMakerState = getParam("coffeeMakerStateid");
 
 if (strcmp(coffeeMakerState.c_str(), "1") == 0) {
-    if(brewingState = 0){  
+    if(brewingState == 0){  
       digitalWrite(relayPin, HIGH);     // Turn coffee maker ON
       digitalWrite(GreenledPin, HIGH);    // Green LED on indicates "on"
       digitalWrite(BlueledPin, LOW);      // Blue LED off
@@ -158,7 +158,6 @@ if (strcmp(coffeeMakerState.c_str(), "1") == 0) {
       }
 
     if(millis() - BrewStartTime >= 120000){
-      brewingState = 0;
       digitalWrite(relayPin, LOW);      // Turn coffee maker OFF
       digitalWrite(GreenledPin, LOW);     // Green LED off
       digitalWrite(BlueledPin, HIGH);     // Blue LED on indicates "off"
