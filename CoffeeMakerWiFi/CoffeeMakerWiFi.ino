@@ -156,7 +156,8 @@ if (strcmp(coffeeMakerState.c_str(), "1") == 0) {
       BrewStartTime = millis();
       delay(4);
       }
-    if(BrewStartTime == (millis()+ 20000)){
+
+    if(millis() - BrewStartTime >= 120000){
       brewingState = 0;
       digitalWrite(relayPin, LOW);      // Turn coffee maker OFF
       digitalWrite(GreenledPin, LOW);     // Green LED off
